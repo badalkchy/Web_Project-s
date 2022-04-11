@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="keywords" content="UminoGym">
+    <meta name="description" content="State class infrastructure and interior">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <script src="Gymanistic.js"></script>
+    <link rel="stylesheet" href="Gymanistic.css">
+    <style>
+        body{
+            padding:0px;
+            margin: 0px;
+            background-color: black;
+            font-family: 'Lucida Sans', 'Lcida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-image: url('Images/plant1.jpg');
+        }
+        .left{
+            /*border:2px solid red;*/
+            display:inline-block;
+            position: absolute;
+            top:15px;
+            left:30px;
+            /*border:2px solid rgb(95, 1, 1);*/
+            color:rgb(200,200,150);
+        }
+        .left img{
+            width: 67px;
+            height:55px;
+            /*box-shadow: 0 0 30px rgba(255, 0, 0, 0.521);*/
+            cursor: pointer;
+        }
+        .left img:hover, .left img:active{
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        .left div{
+            line-height: 1px;
+        }
+        .logoname{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-left: -15px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        .logoname .Universal{
+            color: rgb(30,150,200);
+        }
+        .logoname .tree{
+            color: rgb(231, 127, 7);
+        }
+        .mid{
+            border:3px solid rgba(26, 221, 68, 0.363);
+            display: block;
+            width:680px;
+            margin:15px auto;
+            border-top-left-radius:50px ;
+            border-bottom-right-radius:50px;
+            /*background-color: rgb(34, 33, 33);*/
+            padding: 7px 0px;
+        }
+        .mid:hover, .mid:active{
+            box-shadow: 0 0 30px green;
+        }
+        .right{
+            border:2px solid rgba(10, 150, 45, 0.671);
+            display: inline-block;
+            position: absolute;
+            top:25px;
+            right: 20px;
+            color:rgb(110,110,250);
+            padding: 6px 5px;
+            border-radius: 15px;
+            padding: 7px 9px;
+        }
+        .right:hover, .right:active, .right:focus-visible{
+            box-shadow: 0 0 10px rgb(51, 255, 0);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            color:rgb(110, 154, 250);
+            border:none;
+        }
+        .navigation li{
+            margin:-3px 0px;
+            display:inline-block;
+        }
+        .navigation li a{
+            padding: 5px 15px;
+            text-decoration:none;
+            color:rgb(160, 250, 118)
+            
+        }
+        .navigation li a:hover, .navigation li a:active{
+            background-color: rgba(0, 255, 0, 0.548);
+            text-decoration: underline;
+            text-decoration-color: rgb(0, 0, 0);
+            color:black;
+        }
+        .btn{
+            cursor: pointer;
+            margin: 2px 3px;
+            background-color: rgb(98, 235, 98);
+            border-top-left-radius: 5px;
+        }
+        .btn:hover, .btn:active{
+            background-color: green;
+            color: white;
+        }
+        .container{
+            color:white;
+            border:2px solid rgb(255, 0, 0);
+            width:600px;
+            margin: 2px 2px;
+            padding: 5px 5px;
+            display: block;
+            position:absolute;
+            right: 100px;
+            top: 250px;
+            text-align: center;
+            border-radius: 45px;
+            background-color: rgba(43,40,53,0.40);
+            /*box-shadow: 0 0 30px red;*/
+        }
+        .container:hover, .container:active{
+            box-shadow:0 0 20px red;
+            cursor: none;
+        }
+        form{
+            margin: 20px auto;
+        }
+        .container .formgroup{
+            /*line-height: 40px;*/
+            margin: 10px auto;
+        }
+        .container .formgroup input{
+            width: 340px;
+            text-align: center;
+            height: 35px;
+            color:rgb(194, 193, 193) ;
+            font-size: 20px;
+            background-color: rgb(53, 1, 1);
+            border-radius:5px;
+            border-style:none;
+        }
+        .container .formgroup input placeholder{
+            color:rgb(197, 3, 3);
+        }
+        .container h1 .Un{
+            color: rgb(64, 131, 255);
+        }
+        .container h1 .Tr{
+            color:rgba(255, 123, 0, 0.705)
+        }
+        .container .but button{
+            margin: 5px auto;
+            width: 346px;
+            height: 33px;
+            border-radius:5px ;
+            font-size:19px ;
+            color:rgb(177, 174, 174);
+            background-color: rgba(255, 0, 0, 0);
+            border-style: none;
+            border: 2px solid rgba(255, 255, 255, 0.39);
+        }
+        .container .but button:hover, .container .but button:active{
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+            border:none;
+        }
+        .container ::placeholder{
+            color:rgb(216, 176, 176);
+        }
+        .container3{
+            display:inline-block;
+            position: absolute;
+            top:229px;
+            right:55px;
+            border:2px solid rgba(255, 0, 0, 0.726);
+            border-radius: 8px;
+        }
+        .container2{
+            color:rgba(255, 82, 82, 0.884);
+            display: inline-block;
+            /*border: 2px solid red;*/
+            position:absolute;
+            top: 450px;
+            left: 100px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .container2 .three{
+            font-size: 45px;
+            color: rgb(255, 0, 0);
+        }
+        .container2 .buy{
+            font-size: 20px;
+        }
+        .container4{
+            /*border:2px solid red;*/
+            display: inline-block;
+            position:absolute;
+            top:570px;
+            left:100px;
+        }
+        .container4 .plant{
+            color: rgb(221, 6, 42);
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="left">
+        <img src="Images/Logo.png" alt="">
+        <div class="logoname">
+            <span class="Universal"> Universal</span> <span class="tree"> Tree</span></div>
+    </div>
+    <div class="mid">
+        <nav>
+            <ul type="none" class="navigation">
+                <li><a style="border-top-left-radius:20px; background-color: rgba(9, 255, 9, 0.397);color:rgb(1, 255, 1)" href="#">Home</a></li>
+                <li><a href="#">Plants</a></li>
+                <li><a href="#">Seeds</a></li>
+                <li><a href="#">Know more</a></li>
+                <li><a href="#">Sign up</a></li>
+                <li><a style="border-bottom-right-radius:20px;" href="#">Contact us</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <button class="btn">Call Us</button>
+        <button class="btn">Email</button>
+    </div>
+</header>
+<div class="container">
+    <h1><span class="Un">Universal</span> <span class="Tr">Tree</span></h1>
+    <form action="noaction.php">
+        <div class="formgroup">
+            <input type="text" placeholder="Enter your Name">
+        </div>
+        <div class="formgroup">
+            <input type="text" placeholder="Enter your last Name">
+        </div>
+        <div class="formgroup">
+            <input type="email" placeholder="Enter your E-mail">
+        </div>
+        <div class="formgroup">
+            <input type="number" placeholder="Enter your Contact">
+        </div>
+        <div class="but">
+            <button value="submit">Sign Up</button>
+        </div>
+    </form>
+</div>
+<div class="container2">
+    Get <span class="three">30%</span> Instant discount<br> on prepaid payment<br><span class="buy"> Buy your favourite plant at your price</span>
+</div>
+<div style="color:rgb(163, 163, 163)" class="container3">
+    Tree
+</div>
+<div class="container4">
+    <ul class="plant">
+        <li>Water plant</li>
+        <li>sand&nbsp;&nbsp;plant</li>
+        <li>land&nbsp;&nbsp;plant</li>
+        <li>Fruit&nbsp;&nbsp;plant</li>
+        <li>Your&nbsp; plant</li>
+    </ul>
+</div>
+</body>
+</html>
